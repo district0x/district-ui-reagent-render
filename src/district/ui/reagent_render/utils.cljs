@@ -1,5 +1,6 @@
 (ns district.ui.reagent-render.utils
   (:require [reagent.core :as r]
+            [reagent.dom :as rdom]
             [re-frame.core :as re-frame]))
 
 (defn re-render [{:keys [id target component-var]}]
@@ -8,10 +9,10 @@
   ;; so we prevent "dispatch-sync inside event" error
   (js/setTimeout
     (fn []
-      (r/render [component-var] (cond
-                                  target
-                                  target
+      (rdom/render [component-var] (cond
+                                     target
+                                     target
 
-                                  id
-                                  (.getElementById js/document id))))
+                                     id
+                                     (.getElementById js/document id))))
     0))
