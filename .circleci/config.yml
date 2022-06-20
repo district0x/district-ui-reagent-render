@@ -8,9 +8,6 @@ jobs:
         aws_auth:
             aws_access_key_id: $AWS_ACCESS_KEY_ID
             aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
-      # Secondary container image on common network.
-      - image: trufflesuite/ganache-cli:latest
-        command: [-d, -m district0x, -p 8549, -l 8000000]
     steps:
       - checkout
       - restore_cache:
